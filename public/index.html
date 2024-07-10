@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Multiplayer Shooter</title>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        #gameCanvas { position: absolute; top: 0; left: 0; z-index: 1; }
+        #info {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            font-family: Arial, sans-serif;
+            z-index: 2;
+        }
+        #crosshair {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            border: 2px solid white;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            pointer-events: none;
+        }
+        #score {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div id="info">
+        <h1>3D Multiplayer Shooter</h1>
+        <p>WASD to move, Mouse to look, Click to shoot</p>
+        <p id="status">Initializing...</p>
+    </div>
+    <div id="score">Score: <span id="scoreValue">0</span></div>
+    <div id="crosshair"></div>
+    <div id="gameCanvas"></div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="/game.js"></script>
+</body>
+</html>
